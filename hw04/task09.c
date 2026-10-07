@@ -6,7 +6,8 @@ int main()
 	
 	scanf("%d%d%d", &a, &b, &c);
 	
-	printf(a > b || b > c ? "NO" : "YES");
+	printf(a >= b || b >= c ? "NO" : "YES");
+	printf("\n");
 	
 	return 0;
 }
