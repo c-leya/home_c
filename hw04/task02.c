@@ -10,6 +10,8 @@ int main()
 		printf("%d %d", a, b);
 	else 
 		printf("%d %d", b, a);
+		
+	printf("\n");
 	
 	return 0;
 }

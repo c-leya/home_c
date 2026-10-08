@@ -7,6 +7,7 @@ int main()
 	scanf("%d%d%d", &a, &b, &c);
 	
 	printf(a + b > c && b + c > a && c + a > b ? "YES" : "NO");
+	printf("\n");
 	
 	return 0;
 }

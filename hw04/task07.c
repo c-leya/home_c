@@ -13,7 +13,7 @@ int main()
 		number /= 10;
 	}
 	
-	printf("%d", max);
+	printf("%d\n", max);
 	
 	return 0;
 }
