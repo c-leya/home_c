@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-void print_digits_before(int n)
+void print_numbers_before(int n)
 {	
 	if (n > 1) {
-		print_digits_before(n - 1);
+		print_numbers_before(n - 1);
 		printf(" ");
 	}
 	
@@ -16,7 +16,7 @@ int main()
 	
 	scanf("%d", &n);
 	
-	print_digits_before(n);
+	print_numbers_before(n);
 	
 	printf("\n");
 	
