@@ -13,40 +13,74 @@ int input_size(int *size, int max_size)
 }
 
 
-int input_array(int arr[], int n)
-{
-    for (int i = 0; i < n; i++) {
-        if (scanf("%d", &arr[i]) != 1)  return 1;
-    }
+//~ int input_array(int arr[], int n)
+//~ {
+    //~ for (int i = 0; i < n; i++) {
+        //~ if (scanf("%d", &arr[i]) != 1)  return 1;
+    //~ }
     
-    return 0;
-}
+    //~ return 0;
+//~ }
 
-void print_array(int arr[], int n)
+int input_array(int *arr, int n)
 {
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+    for (int *p = arr; p < arr + n; p++) {
+        if (scanf("%d", p) != 1) return 1;
+    }
+    return 0;
+} 
+
+//~ void print_array(int arr[], int n)
+//~ {
+    //~ for (int i = 0; i < n; i++) {
+        //~ printf("%d ", arr[i]);
+    //~ }
+    //~ printf("\n");
+//~ }
+
+void print_array(int *arr, int n)
+{
+    for (int *p = arr; p < arr + n; p++) {
+        printf("%d ", *p);
     }
     printf("\n");
 }
 
-void sort_even_odd(int n, int a[])
-{
-	int temp[n];
-	int temp_index = 0;
+//~ void sort_even_odd(int n, int a[])
+//~ {
+	//~ int temp[n];
+	//~ int temp_index = 0;
 	
-	for (int i = 0; i < n; i++) {
-		if (a[i] % 2 == 0) temp[temp_index++] = a[i];
-	}
+	//~ for (int i = 0; i < n; i++) {
+		//~ if (a[i] % 2 == 0) temp[temp_index++] = a[i];
+	//~ }
 		
-	for (int i = 0; i < n; i++) {
-		if (a[i] % 2 != 0) temp[temp_index++] = a[i];
-	}
+	//~ for (int i = 0; i < n; i++) {
+		//~ if (a[i] % 2 != 0) temp[temp_index++] = a[i];
+	//~ }
 	
-	for (int i = 0; i < n; i++) {
-		a[i] = temp[i];
-	}
-}
+	//~ for (int i = 0; i < n; i++) {
+		//~ a[i] = temp[i];
+	//~ }
+//~ }
+
+void sort_even_odd(int n, int *a)
+{
+    int temp[n];
+    int *temp_p = temp;
+
+    for (int *p = a; p < a + n; p++) {
+        if (*p % 2 == 0) *temp_p++ = *p;
+    }
+
+    for (int *p = a; p < a + n; p++) {
+        if (*p % 2 != 0) *temp_p++ = *p;
+    }
+
+    for (int i = 0; i < n; i++) {
+        a[i] = temp[i];
+    }
+} 
 
 int main(void)
 {

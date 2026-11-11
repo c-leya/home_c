@@ -12,42 +12,73 @@ int input_size(int *size, int max_size)
     return 0;
 }
 
-
-int input_array(int arr[], int n)
-{
-    for (int i = 0; i < n; i++) {
-        if (scanf("%d", &arr[i]) != 1)  return 1;
-    }
+//~ int input_array(int arr[], int n)
+//~ {
+    //~ for (int i = 0; i < n; i++) {
+        //~ if (scanf("%d", &arr[i]) != 1)  return 1;
+    //~ }
     
+    //~ return 0;
+//~ }
+
+int input_array(int *arr, int n)
+{
+    for (int *p = arr; p < arr + n; p++) {
+        if (scanf("%d", p) != 1) return 1;
+    }
     return 0;
 }
 
-void print_array(int arr[], int n)
+//~ void print_array(int arr[], int n)
+//~ {
+    //~ for (int i = 0; i < n; i++) {
+        //~ printf("%d ", arr[i]);
+    //~ }
+    //~ printf("\n");
+//~ } 
+
+void print_array(const int *arr, int n)
 {
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+    for (const int *p = arr; p < arr + n; p++) {
+        printf("%d ", *p);
     }
     printf("\n");
-}
+} 
 
-void sort_array(int size, int a[])
+//~ void sort_array(int size, int a[])
+//~ {
+	//~ const int last_index = size - 1;
+    //~ int sorted_indexes = 0;
+    //~ while (sorted_indexes < last_index) {
+		//~ int last_not_sorted_index = last_index - sorted_indexes;
+		//~ int current_index = 0;
+		//~ while (current_index < last_not_sorted_index) {
+			//~ int next_index = current_index + 1;
+			//~ if (a[current_index] > a[next_index]) {
+                //~ int temp = a[current_index];
+                //~ a[current_index] = a[next_index];
+                //~ a[next_index] = temp;
+            //~ }
+			//~ current_index++;
+		//~ }
+		//~ sorted_indexes++;
+	//~ } 
+//~ }
+
+void sort_array(int size, int *a)
 {
-	const int last_index = size - 1;
-    int sorted_indexes = 0;
-    while (sorted_indexes < last_index) {
-		int last_not_sorted_index = last_index - sorted_indexes;
-		int current_index = 0;
-		while (current_index < last_not_sorted_index) {
-			int next_index = current_index + 1;
-			if (a[current_index] > a[next_index]) {
-                int temp = a[current_index];
-                a[current_index] = a[next_index];
-                a[next_index] = temp;
+    int *last_p = a + size - 1;
+
+    for (int *tail = last_p; tail > a; tail--) {
+        for (int *curr_p = a; curr_p < tail; curr_p++) {
+            int *next_p = curr_p + 1;
+            if (*curr_p > *next_p) {
+                int temp = *curr_p;
+                *curr_p = *next_p;
+                *next_p = temp;
             }
-			current_index++;
-		}
-		sorted_indexes++;
-	} 
+        }
+    }
 }
 
 int main(void)
